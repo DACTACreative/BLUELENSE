@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pacific Ocean Climate Game Design System */
+
+@layer base {
+  :root {
+    /* Ocean depth gradient colors */
+    --background: 200 100% 4%;
+    --foreground: 200 20% 95%;
+
+    /* Deep ocean card styling */
+    --card: 200 50% 8%;
+    --card-foreground: 200 15% 92%;
+
+    --popover: 200 50% 8%;
+    --popover-foreground: 200 15% 92%;
+
+    /* Primary ocean blue */
+    --primary: 200 100% 20%;
+    --primary-foreground: 200 15% 95%;
+
+    /* Coral accent for choices */
+    --secondary: 15 80% 60%;
+    --secondary-foreground: 200 15% 95%;
+
+    /* Muted ocean tones */
+    --muted: 200 30% 15%;
+    --muted-foreground: 200 10% 70%;
+
+    /* Orange accent for key metrics and interactive elements */
+    --accent: 25 95% 60%;
+    --accent-foreground: 200 15% 95%;
+
+    /* Warning coral for high emissions */
+    --destructive: 15 90% 55%;
+    --destructive-foreground: 200 15% 95%;
+
+    --border: 200 30% 20%;
+    --input: 200 30% 15%;
+    --ring: 25 95% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom ocean theme variables */
+    --ocean-deep: 200 100% 4%;
+    --ocean-mid: 200 80% 12%;
+    --ocean-light: 180 60% 25%;
+    --coral-warm: 25 85% 65%;
+    --coral-urgent: 15 90% 55%;
+    --wave-foam: 200 20% 85%;
+    
+    /* Orange palette variations */
+    --orange-soft: 30 90% 70%;
+    --orange-bright: 25 95% 60%;
+    --orange-deep: 20 85% 50%;
+    
+    /* Gradients */
+    --gradient-ocean: linear-gradient(180deg, hsl(var(--ocean-deep)), hsl(var(--ocean-mid)), hsl(var(--ocean-light)));
+    --gradient-coral: linear-gradient(135deg, hsl(var(--coral-warm)), hsl(var(--coral-urgent)));
+    --gradient-orange: linear-gradient(135deg, hsl(var(--orange-soft)), hsl(var(--orange-bright)));
+    --gradient-wave: linear-gradient(90deg, transparent, hsl(var(--wave-foam) / 0.1), transparent);
+    
+    /* Shadows with ocean theme */
+    --shadow-ocean: 0 4px 20px hsl(var(--ocean-deep) / 0.6);
+    --shadow-coral: 0 4px 15px hsl(var(--coral-warm) / 0.3);
+    --shadow-orange: 0 4px 15px hsl(var(--orange-bright) / 0.3);
+    --shadow-deep: 0 8px 30px hsl(var(--ocean-deep) / 0.8);
+    
+    /* Animations */
+    --transition-wave: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.3s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Smooth storytelling scroll */
+.snap-y {
+  scroll-behavior: smooth !important;
+  scroll-snap-type: y mandatory;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+}
+
+/* Keyframe animations */
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-out {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes slide-in-right {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slide-out-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* Force VANTA canvas visibility - nuclear option */
+canvas {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -10 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+/* Specific VANTA canvas targeting */
+.vanta-canvas,
+canvas.vanta-canvas,
+[data-vanta="true"] canvas {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -10 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+/* Enhanced fallback animated background if VANTA fails */
+.animated-bg-fallback {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 102, 204, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(53, 197, 242, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(25, 149, 173, 0.1) 0%, transparent 50%),
+    linear-gradient(-45deg, #000000, #001122, #002244, #000618, #000000);
+  background-size: 300% 300%, 400% 400%, 200% 200%, 600% 600%;
+  animation: 
+    ocean-drift 20s ease-in-out infinite,
+    gradient-shift 15s ease infinite,
+    wave-motion 8s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%, 100% 0%, 50% 100%, 0% 50%; }
+  50% { background-position: 100% 50%, 0% 100%, 100% 0%, 100% 50%; }
+  100% { background-position: 0% 50%, 100% 0%, 50% 100%, 0% 50%; }
+}
+
+@keyframes ocean-drift {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  33% { transform: translateX(-5px) translateY(-3px); }
+  66% { transform: translateX(3px) translateY(5px); }
+}
+
+@keyframes wave-motion {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(10deg) brightness(1.1); }
+}
+
+/* Loading spinner animations */
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+/* Ensure VANTA container is visible */
+[data-vanta="true"] {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: -10 !important;
+}
