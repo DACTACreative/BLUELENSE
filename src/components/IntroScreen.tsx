@@ -14,6 +14,7 @@ import introG from '@/data/intro-g.png';
 import introH from '@/data/intro-h.png';
 import introI from '@/data/intro-i.png';
 import introJ from '@/data/intro-j.png';
+import scenarioD from '@/data/Scenario-d.png';
 
 interface IntroScreenProps {
   onStart: () => void;
@@ -300,7 +301,7 @@ Let’s begin.`,
           >
             <div className="w-full h-full flex items-center justify-center">
               <img 
-                src={introAA}
+                src={scenarioD}
                 alt="Blue Pacific 2050 Experience"
                 className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border-2 border-white/20"
                 style={{ width: 'auto', height: 'auto' }}
@@ -313,7 +314,7 @@ Let’s begin.`,
         <div className="lg:hidden w-full min-h-[50vh] flex items-center justify-center p-4 bg-black">
           <div className="w-full h-full flex items-center justify-center">
             <img 
-              src={introAA}
+              src={scenarioD}
               alt="Blue Pacific 2050 Experience"
               className="max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border-2 border-white/20"
             />
